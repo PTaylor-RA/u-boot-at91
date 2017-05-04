@@ -126,7 +126,7 @@
 #else
 #undef CONFIG_BOOTARGS
 #define CONFIG_BOOTARGS \
-	"console=ttyS0,115200 earlyprintk root=/dev/mmcblk1p1 rw rootwait"
+	"console=ttyS0,115200 earlyprintk root=/dev/mmcblk1p1 rw"
 #endif
 
 /* SPL */

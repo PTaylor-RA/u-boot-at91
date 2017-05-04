@@ -113,17 +113,27 @@
 #ifdef CONFIG_SYS_USE_MMC
 
 /* bootstrap + u-boot + env in sd card */
+#undef CONFIG_ENV_IS_IN_FAT
 #undef FAT_ENV_DEVICE_AND_PART
 #undef CONFIG_BOOTCOMMAND
 
-#define FAT_ENV_DEVICE_AND_PART	"0:1"
-#define CONFIG_BOOTCOMMAND	"fatload mmc 0:1 0x21000000 pod-g3.dtb; " \
+/* env binary is created independently and written to boot1 */
+#define CONFIG_ENV_IS_IN_MMC
+#define CONFIG_SYS_MMC_ENV_DEV	 0   /* mmcblk0 */
+#define CONFIG_SYS_MMC_ENV_PART	 2   /* boot1 */
+#define CONFIG_ENV_OFFSET  0
+#define CONFIG_ENV_SIZE  0x80000   /* 1M/2 */
+#define CONFIG_ENV_OFFSET_REDUND  0x80000
+
+/*
+#define CONFIG_BOOTCOMMAND	"fatload mmc 0:1 0x21000000 sama5d2_xplained.dtb; " \
 				"fatload mmc 0:1 0x22000000 zImage; " \
 				"bootz 0x22000000 - 0x21000000"
 #undef CONFIG_BOOTARGS
 #define CONFIG_BOOTARGS \
     "console=ttyS0,115200n8 root=/dev/nfs nfsroot=192.168.1.200:/syn_pod_nfs ip=192.168.1.201:192.168.1.200:192.168.1.1:255.255.255.0:synergy:eth0:dhcp nfsrootdebug rootwait earlyprintk"
-	/*"console=ttyS0,115200 earlyprintk root=/dev/mmcblk0p1 rw"*/
+*/
+	/*"console=ttyS0,115200 earlyprintk root=/dev/mmcblk0p2 rw"*/
 #else
 #undef CONFIG_BOOTARGS
 #define CONFIG_BOOTARGS \

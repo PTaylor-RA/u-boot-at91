@@ -116,13 +116,14 @@
 #undef FAT_ENV_DEVICE_AND_PART
 #undef CONFIG_BOOTCOMMAND
 
-#define FAT_ENV_DEVICE_AND_PART	"1"
-#define CONFIG_BOOTCOMMAND	"fatload mmc 1:1 0x21000000 at91-sama5d2_xplained.dtb; " \
-				"fatload mmc 1:1 0x22000000 zImage; " \
+#define FAT_ENV_DEVICE_AND_PART	"0:1"
+#define CONFIG_BOOTCOMMAND	"fatload mmc 0:1 0x21000000 pod-g3.dtb; " \
+				"fatload mmc 0:1 0x22000000 zImage; " \
 				"bootz 0x22000000 - 0x21000000"
 #undef CONFIG_BOOTARGS
 #define CONFIG_BOOTARGS \
-	"console=ttyS0,115200 earlyprintk root=/dev/mmcblk1p2 rw rootwait"
+    "console=ttyS0,115200n8 root=/dev/nfs nfsroot=192.168.1.200:/syn_pod_nfs ip=192.168.1.201:192.168.1.200:192.168.1.1:255.255.255.0:synergy:eth0:dhcp nfsrootdebug rootwait earlyprintk"
+	/*"console=ttyS0,115200 earlyprintk root=/dev/mmcblk0p1 rw"*/
 #else
 #undef CONFIG_BOOTARGS
 #define CONFIG_BOOTARGS \

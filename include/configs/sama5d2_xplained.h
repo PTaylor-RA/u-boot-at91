@@ -118,6 +118,7 @@
 
   #ifdef CONFIG_SYS_ENV_BOOT1
     /* env binary is created independently and written to boot1 */
+    #undef  CONFIG_ENV_OVERWRITE
     #undef  CONFIG_ENV_IS_IN_FAT
     #define CONFIG_ENV_IS_IN_MMC
     #define CONFIG_SYS_MMC_ENV_DEV	 0   /* mmcblk0 */

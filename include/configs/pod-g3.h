@@ -120,15 +120,15 @@
     /* env binary is created independently and written to boot1 */
     #undef  CONFIG_ENV_OVERWRITE
     #undef  CONFIG_ENV_IS_IN_FAT
-    #define CONFIG_ENV_IS_IN_MMC
-    #define CONFIG_SYS_MMC_ENV_DEV	 0   /* mmcblk0 */
-    #define CONFIG_SYS_MMC_ENV_PART	 2   /* boot1 */
+    #define CONFIG_ENV_IS_IN_SPI_FLASH
+    /*#define CONFIG_SYS_MMC_ENV_DEV	 0*/  /* mmcblk0 */
+    /*#define CONFIG_SYS_MMC_ENV_PART	 2*/   /* boot1 */
     #undef  CONFIG_ENV_OFFSET
-    #define CONFIG_ENV_OFFSET  0
+    #define CONFIG_ENV_OFFSET  0x7FE000
     #undef  CONFIG_ENV_SIZE
-    #define CONFIG_ENV_SIZE  0x80000   /* 1M/2 */
+    #define CONFIG_ENV_SIZE  0x1000   /* 1M/2 */
     #undef  CONFIG_ENV_OFFSET_REDUND
-    #define CONFIG_ENV_OFFSET_REDUND  0x80000
+    #define CONFIG_ENV_OFFSET_REDUND  0x7FF000
 
   #else
 

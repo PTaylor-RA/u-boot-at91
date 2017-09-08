@@ -1,0 +1,6 @@
+POD-G3 BOARD
+M:	Peter Taylor <ptaylor@rayallen.com>
+S:	Maintained
+F:	board/rayallen/pod-g3/
+F:	include/configs/pod-g3.h
+

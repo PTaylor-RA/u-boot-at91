@@ -174,10 +174,12 @@ config TARGET_VINCO
 	select CPU_V7
 	select SUPPORT_SPL
 
-config TARGET_POD-G3
+config TARGET_POD_G3
 	bool "POD-G3 board"
 	select CPU_V7
 	select SUPPORT_SPL
+	select BOARD_EARLY_INIT_F
+	select BOARD_LATE_INIT
 
 endchoice
 

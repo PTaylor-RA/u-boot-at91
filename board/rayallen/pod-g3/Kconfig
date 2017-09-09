@@ -1,4 +1,4 @@
-if TARGET_POD-G3
+if TARGET_POD_G3
 
 config SYS_BOARD
 	default "pod-g3"

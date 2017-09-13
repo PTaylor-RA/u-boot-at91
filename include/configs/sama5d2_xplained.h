@@ -53,7 +53,6 @@
 #undef FAT_ENV_DEVICE_AND_PART
 #undef CONFIG_BOOTCOMMAND
 
-  #ifdef CONFIG_SYS_ENV_BOOT1
     /* env binary is created independently and written to boot1 */
     #undef  CONFIG_ENV_OVERWRITE
     #undef  CONFIG_ENV_IS_IN_FAT
@@ -66,16 +65,6 @@
     #define CONFIG_ENV_SIZE  0x80000   /* 1M/2 */
     #undef  CONFIG_ENV_OFFSET_REDUND
     #define CONFIG_ENV_OFFSET_REDUND  0x80000
-
-  #else
-
-#define FAT_ENV_DEVICE_AND_PART	"1"
-#define CONFIG_BOOTCOMMAND	"fatload mmc 1:1 0x21000000 at91-sama5d2_xplained.dtb; " \
-				"fatload mmc 1:1 0x22000000 zImage; " \
-				"bootz 0x22000000 - 0x21000000"
-#undef CONFIG_BOOTARGS
-#define CONFIG_BOOTARGS \
-	"console=ttyS0,115200 earlyprintk root=/dev/mmcblk1p2 rw rootwait"
 
 #endif
 

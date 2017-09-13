@@ -12,19 +12,4 @@ config SYS_SOC
 config SYS_CONFIG_NAME
 	default "pod-g3"
 
-config ATMEL_SPI0
-	bool "SPI0"
-	select ATMEL_SPI
-	default y
-
-config ATMEL_SDHCI0
-	bool "SDHCI0"
-	select ATMEL_SDHCI
-	default y
-
-config ATMEL_SDHCI1
-	bool "SDHCI1"
-	select ATMEL_SDHCI
-	default y
-
 endif
